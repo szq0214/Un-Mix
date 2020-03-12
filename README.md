@@ -1,7 +1,7 @@
 
 ## Rethinking Image Mixture for Unsupervised Visual Representation Learning
 
-This repo contains the implementation for [Rethinking Image Mixture for Unsupervised Visual Representation Learning](), which perturbs input image  space to soften the output prediction space indirectly, so that the proposed method can smooth decision boundaries and prevent the learner from becoming over-confident.
+This repo contains the implementation for [Rethinking Image Mixture for Unsupervised Visual Representation Learning](http://arxiv.org/abs/2003.05438), which perturbs input image  space to soften the output prediction space indirectly, so that the proposed method can smooth decision boundaries and prevent the learner from becoming over-confident.
 
 ## Our Motivation: Soften Predictions
 
@@ -36,7 +36,7 @@ We also include other data augmentation methods like Cutout and Random Erasing i
 
 ## Results
 
-We run our method with [MoCo]() and [CMC](), the results are as follows:
+We run our method with [MoCo](https://arxiv.org/abs/1911.05722) and [CMC](https://arxiv.org/abs/1906.05849), the results are as follows:
 
 <div align=center>
 <img src="./imgs/acc_vs_epoch.png" width="400">
@@ -63,8 +63,8 @@ If you find this repo useful for your research, please consider citing the paper
 ```
 @article{shen2020rethinking,
   title={Rethinking Image Mixture for Unsupervised Visual Representation Learning},
-  author={Zhiqiang Shen and Zechun Liu and Zhuang Liu and Marios Savvides and Trevor Darrell},
-  journal={arXiv preprint arXiv:},
+  author={Shen, Zhiqiang and Liu, Zechun and Liu, Zhuang and Savvides, Marios and Darrell, Trevor},
+  journal={arXiv preprint arXiv:2003.05438},
   year={2020}
 }
 ```
