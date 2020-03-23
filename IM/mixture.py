@@ -34,7 +34,7 @@ class GM(Dataset):
         return len(self.dataset)
 
 class RM(Dataset):
-    def __init__(self, dataset, num_mix=1, beta=1., prob=1.0, decay=1.0): 
+    def __init__(self, dataset, beta=1.0, num_mix=2, prob=0.1, decay=1.0): 
         self.dataset = dataset
         self.num_mix = num_mix
         self.beta = beta
@@ -154,7 +154,7 @@ class RandomErasing(Dataset):
 
 def IM(train_dataset, g_alpha, g_num_mix, g_prob, r_beta, r_prob, r_num_mix, r_decay):
     train_dataset = GM(train_dataset, g_alpha, g_num_mix, g_prob)
-    train_dataset = RM(train_dataset, r_beta, r_prob, r_num_mix, r_decay)
+    train_dataset = RM(train_dataset, r_beta, r_num_mix, r_prob, r_decay)
     return train_dataset
 
 def global_(train_dataset, g_alpha, g_num_mix, g_prob):
@@ -162,5 +162,5 @@ def global_(train_dataset, g_alpha, g_num_mix, g_prob):
     return train_dataset
 
 def region(train_dataset, r_beta, r_prob, r_num_mix, r_decay):
-    train_dataset = RM(train_dataset, r_beta, r_prob, r_num_mix, r_decay)
+    train_dataset = RM(train_dataset, r_beta, r_num_mix, r_prob, r_decay)
     return train_dataset
