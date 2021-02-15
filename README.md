@@ -14,7 +14,8 @@ args.beta = 1.0
 for x in loader: # load a minibatch x with N samples
     # Probability of choosing global or local level mixtures
     prob = np.random.rand(1)
-    lam = np.random.beta(args.beta, args.beta) images_reverse = torch.flip(x[0], (0,))
+    lam = np.random.beta(args.beta, args.beta) 
+    images_reverse = torch.flip(x[0], (0,))
     if prob < args.P:
 	# global-level mixtures
 	mixed_images = lam*x[0]+(1-lam)* images_reverse
@@ -23,8 +24,7 @@ for x in loader: # load a minibatch x with N samples
 	# region-level mixtures
 	mixed_images = x[0].clone()
 	bbx1, bby1, bbx2, bby2 = utils.rand_bbox(x[0].size(), lam)
-	mixed_images[:, :, bbx1:bbx2, bby1:bby2] =
-	images_reverse[:, :, bbx1:bbx2, bby1:bby2] mixed_images_flip = torch.flip(mixed_images,(0,))
+	mixed_images[:, :, bbx1:bbx2, bby1:bby2] = images_reverse[:, :, bbx1:bbx2, bby1:bby2] mixed_images_flip = torch.flip(mixed_images,(0,))
 	lam = 1 - ((bbx2 - bbx1) * (bby2 - bby1) / (x[0].size()[-1] * x[0].size()[-2]))
     # original loss term
     loss_ori = model(x)
@@ -34,7 +34,7 @@ for x in loader: # load a minibatch x with N samples
     # loss for the reverse order of mixtures
     loss_m2 = model([x[1], mixed_images_flip])
     # final loss function (our core code)
-    loss = loss_ori + lam*loss_m1 + (1-lam)*loss_m2
+    loss = loss_ori + lam * loss_m1 + (1-lam) * loss_m2
     # update gradients
     optimizer.zero_grad() 
     loss.backward() 
@@ -124,7 +124,7 @@ If you find this repo useful for your research, please consider citing the paper
 }
 ```
 
-**For any questions, please contact Zhiqiang Shen (zhiqians@andrew.cmu.edu).**
+**For any questions, please contact Zhiqiang Shen (zhiqiangshen0214 at gmail.com).**
 
 ## Acknowledgements
 
