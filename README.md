@@ -7,7 +7,8 @@
 We update our [manuscript](https://arxiv.org/pdf/2003.05438.pdf) with a more comprehensive study using *image mixtures* method on unsupervised learning. The core codes of our method can be summarized as follows:
 
 ```python:
-# P: probability of global or local level mixtures # beta: hyperparameter for Beta distribution
+# P: probability of global or local level mixtures 
+# beta: hyperparameter for Beta distribution
 # lam: mixture ratio in global-level mixture or bounding box location in region-level mixture
 args.beta = 1.0
 for x in loader: # load a minibatch x with N samples
