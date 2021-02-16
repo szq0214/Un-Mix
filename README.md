@@ -24,7 +24,8 @@ for x in loader: # load a minibatch x with N samples
 	# region-level mixtures
 	mixed_images = x[0].clone()
 	bbx1, bby1, bbx2, bby2 = utils.rand_bbox(x[0].size(), lam)
-	mixed_images[:, :, bbx1:bbx2, bby1:bby2] = images_reverse[:, :, bbx1:bbx2, bby1:bby2] mixed_images_flip = torch.flip(mixed_images,(0,))
+	mixed_images[:, :, bbx1:bbx2, bby1:bby2] = images_reverse[:, :, bbx1:bbx2, bby1:bby2] 
+	mixed_images_flip = torch.flip(mixed_images,(0,))
 	lam = 1 - ((bbx2 - bbx1) * (bby2 - bby1) / (x[0].size()[-1] * x[0].size()[-2]))
     # original loss term
     loss_ori = model(x)
