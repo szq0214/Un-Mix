@@ -43,7 +43,7 @@ for x in loader: # load a minibatch x with N samples
     ...
 ```
 
-This repo contains the implementation for [Un-Mix: Rethinking Image Mixture for Unsupervised Visual Representation Learning](https://arxiv.org/pdf/2003.05438.pdf), which perturbs input image  space to soften the output prediction space indirectly, meanwhile, assigning new label values in the unsupervised frameworks accordingly. So that the proposed method can smooth decision boundaries and prevent the learner from becoming over-confident.
+This repo contains the implementation for [Un-Mix: Rethinking Image Mixtures for Unsupervised Visual Representation Learning](https://arxiv.org/pdf/2003.05438.pdf), which perturbs input image  space to soften the output prediction space indirectly, meanwhile, assigning new label values in the unsupervised frameworks accordingly. So that the proposed method can smooth decision boundaries and prevent the learner from becoming over-confident.
 
 ## Our Motivation: Soften Input/label Spaces
 
@@ -118,7 +118,7 @@ If you find this repo useful for your research, please consider citing the paper
 
 ```
 @article{shen2020rethinking,
-  title={Un-Mix: Rethinking Image Mixture for Unsupervised Visual Representation Learning},
+  title={Un-Mix: Rethinking Image Mixtures for Unsupervised Visual Representation Learning},
   author={Shen, Zhiqiang and Liu, Zechun and Liu, Zhuang and Savvides, Marios and Darrell, Trevor and Xing, Eric},
   journal={arXiv preprint arXiv:2003.05438},
   year={2020}
