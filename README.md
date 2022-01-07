@@ -2,6 +2,47 @@
 ## Un-Mix: Rethinking Image Mixtures for Unsupervised Visual Representation Learning
 
 
+## Update (01/08/2022)
+
+- **<font size=4>Un-Mix has been accepted in AAAI 2022!!</font>** Please check out our camera-ready paper on [arXiv](https://arxiv.org/pdf/2003.05438.pdf).
+
+- We provide a demo of Un-Mix on CIFAR-10 and 100 adapted from [Colab notebook](https://colab.research.google.com/github/facebookresearch/moco/blob/colab-notebook/colab/moco_cifar10_demo.ipynb) of MoCo.
+
+	To train an Un-Mix model with MoCo and symmetric loss, run `unmix_c10.py` or `unmix_c100.py`:
+	
+	
+	```
+	# CIFAR-10
+	CUDA_VISIBLE_DEVICES=0 python unmix_c10.py 
+	
+	# CIFAR-100
+	CUDA_VISIBLE_DEVICES=1 python unmix_c100.py 
+	```
+
+	**Results on CIFAR-10:**
+	
+	| Model    | epochs  | acc. (Top-1)  | weights (last) |logs| args|
+	|:-------:|:--------:|:--------:|:--------:|:--------:|:--------:|
+	| `MoCo w/ asymmetric` | 1000 | 89.11% | [link](https://drive.google.com/file/d/1SFug83e6J2U4WsnapFxAs4UinGMcfrRZ/view?usp=sharing) |  [link](https://drive.google.com/file/d/1LX0sZmUH6Datwq3H5mPnkOL_kxDr0oWs/view?usp=sharing) |  [link](https://drive.google.com/file/d/1-CpyJh41J5cd9aKyZIQT5x9V5Oph2Lrr/view?usp=sharing) | 
+	| **`+Un-Mix w/ asymmetric`** | 1000 | **91.34%**  | [link](https://drive.google.com/file/d/1kuRZIcyWGHYYge1Y_CxkBIuaUxVmdLTD/view?usp=sharing) |  [link](https://drive.google.com/file/d/1s8wvuFdRiw6ZreRotyvHFXyNWpCee5ka/view?usp=sharing) |  [link](https://drive.google.com/file/d/1d2cOGhKhRWUYC19HCO-ZopjvPMof6wGO/view?usp=sharing) | 
+	|   |   |  |  |  |
+	| `MoCo w/ symmetric` |  1000 | 90.49% | [link](https://drive.google.com/file/d/1VribpdEWZ-MoyKRw2YBV9FY-AvHY3lsy/view?usp=sharing) |  [link](https://drive.google.com/file/d/11ptyy0XC7zthsNVY_xJKxIfNQ-Ikn55e/view?usp=sharing) | [link](https://drive.google.com/file/d/1I6eRUJT0AG_mFDodgimQfomBy4VAXeCe/view?usp=sharing) | 
+	| **`+Un-Mix w/ symmetric`** | 1000 |**92.25%**  | [link](https://drive.google.com/file/d/1hUq3m7c6a6Pg1faLqdNLYPDeQ4Py2ZJz/view?usp=sharing) |  [link](https://drive.google.com/file/d/1vrJaKb9QzEt0P0aYe59LsMAOtn8XLABA/view?usp=sharing) | [link](https://drive.google.com/file/d/1yy2SmlJiRubyYwLbyiv7DE9Y7e8EAKk-/view?usp=sharing) | 
+	
+	**Results on CIFAR-100:**
+	
+	| Model    | epochs  | acc. (Top-1)  | weights (last) |logs|args|
+	|:-------:|:--------:|:--------:|:--------:|:--------:|:--------:|
+	| `MoCo w/ asymmetric` | 1000 | 63.64% | [link](https://drive.google.com/file/d/1KWjk1366Z9oPqNlCtvjW2csOHe4KIuqX/view?usp=sharing) |  [link](https://drive.google.com/file/d/1gD8gESbDsgjQjsDnWRJsplDtrGAo59fI/view?usp=sharing) |  [link](https://drive.google.com/file/d/1SMQAD7zBheV84I5BEtgFqCvgDWuXu8CW/view?usp=sharing) | 
+	| **`+Un-Mix w/ asymmetric`** | 1000 |  **67.33%**  | [link](https://drive.google.com/file/d/1V9mHEjVgD8FDL_s1Zx6fzouZkzWtlG0o/view?usp=sharing) |  [link](https://drive.google.com/file/d/1VPWKIgu0F8ZYYAFUN4e1pkSQUSDGSBjb/view?usp=sharing) |  [link](https://drive.google.com/file/d/1_Ch9MBKQ4E_Ff3qeLWQZLK8YnDG0HOms/view?usp=sharing) | 
+	|   |   |  |  |  |
+	| `MoCo w/ symmetric` |  1000 | 65.49% | [link](https://drive.google.com/file/d/1mgCUFSA8Lo38kce97mJcTZ76PQ7INwiC/view?usp=sharing) |  [link](https://drive.google.com/file/d/1LcIh4xmQabzi3oDtwUXHnR_LbspppK-0/view?usp=sharing) | [link](https://drive.google.com/file/d/14bJPtRvD0ZNuOfSAOxc7dCsZg-ejj568/view?usp=sharing) | 
+	| **`+Un-Mix w/ symmetric`** | 1000 | **68.83%**  | [link](https://drive.google.com/file/d/1yRVTbJLTL6yphcBWkPw1r29LPcG5stFW/view?usp=sharing) |  [link](https://drive.google.com/file/d/1N3hGWm4kT1x2zrup51avWcxG4V-zte8P/view?usp=sharing) |  [link](https://drive.google.com/file/d/1uwEY7HZUTj1CT6ZfmZ72DR2JSggfaIuh/view?usp=sharing) |  
+
+
+- Our pre-trained ResNet-50 model on ImageNet (MoCo V2 based) is available at: [Download](https://drive.google.com/file/d/1-t1lgVk6qPBaPRqePPHsEtyf530DfEbt/view?usp=sharing). The training code is available at: [code](https://github.com/szq0214/Un-Mix/UnMix_MoCoV2).
+
+
 ## Update (02/15/2021)
 
 We update our [manuscript](https://arxiv.org/pdf/2003.05438.pdf) with a more comprehensive study using *image mixtures* method on unsupervised learning. The core codes of our method can be summarized as follows:
@@ -117,15 +158,17 @@ Figure 5: Illustration of weight distributions at 1, 10, 20, 30, 40 and 50-th co
 If you find this repo useful for your research, please consider citing the paper
 
 ```
-@article{shen2020rethinking,
+@inproceedings{shen2022unmix,
   title={Un-Mix: Rethinking Image Mixtures for Unsupervised Visual Representation Learning},
   author={Shen, Zhiqiang and Liu, Zechun and Liu, Zhuang and Savvides, Marios and Darrell, Trevor and Xing, Eric},
-  journal={arXiv preprint arXiv:2003.05438},
-  year={2020}
+  journal={Proceedings of the AAAI Conference on Artificial Intelligence (AAAI)},
+  year={2022}
 }
 ```
 
-**For any questions, please contact Zhiqiang Shen (zhiqiangshen0214 at gmail.com).**
+## Contact
+
+For any questions and comments, please contact Zhiqiang Shen (zhiqiangshen0214 at gmail.com).
 
 ## Acknowledgements
 
