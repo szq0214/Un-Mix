@@ -2,7 +2,7 @@
 ## Un-Mix: Rethinking Image Mixtures for Unsupervised Visual Representation Learning
 
 
-## Update (01/08/2022)
+## Update (01/07/2022)
 
 - **<font size=4>Un-Mix has been accepted in AAAI 2022!!</font>** Please check out our camera-ready paper on [arXiv](https://arxiv.org/pdf/2003.05438.pdf).
 
@@ -40,7 +40,7 @@
 	| **`+Un-Mix w/ symmetric`** | 1000 | **68.83%**  | [link](https://drive.google.com/file/d/1yRVTbJLTL6yphcBWkPw1r29LPcG5stFW/view?usp=sharing) |  [link](https://drive.google.com/file/d/1N3hGWm4kT1x2zrup51avWcxG4V-zte8P/view?usp=sharing) |  [link](https://drive.google.com/file/d/1uwEY7HZUTj1CT6ZfmZ72DR2JSggfaIuh/view?usp=sharing) |  
 
 
-- Our pre-trained ResNet-50 model on ImageNet (MoCo V2 based) is available at: [Download](https://drive.google.com/file/d/1-t1lgVk6qPBaPRqePPHsEtyf530DfEbt/view?usp=sharing). The training code is available at: [code](https://github.com/szq0214/Un-Mix/UnMix_MoCoV2).
+- Our pre-trained ResNet-50 model on ImageNet (MoCo V2 based) is available at: [Download](https://drive.google.com/file/d/1-t1lgVk6qPBaPRqePPHsEtyf530DfEbt/view?usp=sharing). The training code is available at: [code](https://github.com/szq0214/Un-Mix/tree/master/UnMix_MoCoV2).
 
 
 ## Update (02/15/2021)
