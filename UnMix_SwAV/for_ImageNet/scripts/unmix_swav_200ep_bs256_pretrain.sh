@@ -6,21 +6,21 @@
 #
 
 #!/bin/bash
-#SBATCH --nodes=8
-#SBATCH --gpus=64
-#SBATCH --ntasks-per-node=8
-#SBATCH --cpus-per-task=8
-#SBATCH --job-name=swav_200ep_pretrain
-#SBATCH --time=13:00:00
-#SBATCH --mem=450G
+#SBATCH --nodes=1
+#SBATCH --gpus=4
+#SBATCH --ntasks-per-node=4
+#SBATCH --cpus-per-task=4
+#SBATCH --job-name=swav_200ep_bs256_pretrain
+#SBATCH --time=72:00:00
+#SBATCH --mem=150G
 
-master_node=${SLURM_NODELIST:0:9}${SLURM_NODELIST:10:4}
+master_node=${SLURM_NODELIST:0:9}${SLURM_NODELIST:9:4}
 dist_url="tcp://"
 dist_url+=$master_node
 dist_url+=:40000
 
 DATASET_PATH="/path/to/imagenet/train"
-EXPERIMENT_PATH="./experiments/swav_200ep_pretrain"
+EXPERIMENT_PATH="./experiments/unmix_swav_200ep_bs256_pretrain"
 mkdir -p $EXPERIMENT_PATH
 
 srun --output=${EXPERIMENT_PATH}/%j.out --error=${EXPERIMENT_PATH}/%j.err --label python -u main_swav_unmix.py \
@@ -35,17 +35,17 @@ srun --output=${EXPERIMENT_PATH}/%j.out --error=${EXPERIMENT_PATH}/%j.err --labe
 --sinkhorn_iterations 3 \
 --feat_dim 128 \
 --nmb_prototypes 3000 \
---queue_length 0 \
+--queue_length 3840 \
+--epoch_queue_starts 15 \
 --epochs 200 \
 --batch_size 64 \
---base_lr 4.8 \
---final_lr 0.0048 \
---freeze_prototypes_niters 313 \
+--base_lr 0.6 \
+--final_lr 0.0006 \
+--freeze_prototypes_niters 5005 \
 --wd 0.000001 \
---warmup_epochs 10 \
---start_warmup 0.3 \
+--warmup_epochs 0 \
 --dist_url $dist_url \
 --arch resnet50 \
 --use_fp16 true \
---sync_bn apex \
+--sync_bn pytorch \
 --dump_path $EXPERIMENT_PATH

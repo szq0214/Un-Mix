@@ -20,7 +20,7 @@ It also includes the implementation of the [MoCo v2 paper](https://arxiv.org/abs
   year    = {2020},
 }
 ```
-Un-Mix paper:
+[Un-Mix paper](https://arxiv.org/abs/2003.05438):
 ```
 @article{shen2020mix,
   title={Un-mix: Rethinking image mixtures for unsupervised visual representation learning},
@@ -56,7 +56,7 @@ python main_moco_unmix.py \
 ```
 This script uses all the default hyper-parameters as described in the MoCo v1 paper. To run MoCo v2, set `--mlp --moco-t 0.2 --aug-plus --cos`.
 
-***Note***: for 4-gpu training, we recommend following the [linear lr scaling recipe](https://arxiv.org/abs/1706.02677): `--lr 0.015 --batch-size 128` with 4 gpus. We got similar results using this setting.
+***Note***: for 4-gpu training, we recommend following the [linear lr scaling recipe](https://arxiv.org/abs/1706.02677): `--lr 0.015 --batch-size 128` with 4 gpus.
 
 
 ### Linear Classification

@@ -21,7 +21,7 @@ dist_url+=$master_node
 dist_url+=:40000
 
 DATASET_PATH="/path/to/imagenet/train"
-EXPERIMENT_PATH="./experiments/swav_RN50w2_400ep_pretrain"
+EXPERIMENT_PATH="./experiments/unmix_swav_RN50w2_400ep_pretrain"
 mkdir -p $EXPERIMENT_PATH
 
 srun --output=${EXPERIMENT_PATH}/%j.out --error=${EXPERIMENT_PATH}/%j.err --label python -u main_swav_unmix.py \

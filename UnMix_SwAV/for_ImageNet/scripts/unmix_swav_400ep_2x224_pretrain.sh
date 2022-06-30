@@ -10,7 +10,7 @@
 #SBATCH --gpus=64
 #SBATCH --ntasks-per-node=8
 #SBATCH --cpus-per-task=8
-#SBATCH --job-name=swav_400ep_pretrain
+#SBATCH --job-name=swav_400ep_2x224_pretrain
 #SBATCH --time=25:00:00
 #SBATCH --mem=450G
 
@@ -20,15 +20,15 @@ dist_url+=$master_node
 dist_url+=:40000
 
 DATASET_PATH="/path/to/imagenet/train"
-EXPERIMENT_PATH="./experiments/swav_400ep_pretrain"
+EXPERIMENT_PATH="./experiments/unmix_swav_400ep_2x224_pretrain"
 mkdir -p $EXPERIMENT_PATH
 
 srun --output=${EXPERIMENT_PATH}/%j.out --error=${EXPERIMENT_PATH}/%j.err --label python -u main_swav_unmix.py \
 --data_path $DATASET_PATH \
---nmb_crops 2 6 \
---size_crops 224 96 \
---min_scale_crops 0.14 0.05 \
---max_scale_crops 1. 0.14 \
+--nmb_crops 2 \
+--size_crops 224 \
+--min_scale_crops 0.08 \
+--max_scale_crops 1. \
 --crops_for_assign 0 1 \
 --temperature 0.1 \
 --epsilon 0.05 \
@@ -49,3 +49,4 @@ srun --output=${EXPERIMENT_PATH}/%j.out --error=${EXPERIMENT_PATH}/%j.err --labe
 --use_fp16 true \
 --sync_bn apex \
 --dump_path $EXPERIMENT_PATH
+

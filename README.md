@@ -5,13 +5,13 @@
 
 **New:** We add more implementation code and models in this repo:
 
-- **Un-Mix** w/ [SwAV](https://arxiv.org/abs/2006.09882) on CIFAR-10 and CIFAR-100, please check our results and code out at [./UnMix_SwAV/for_CIFAR](https://github.com/szq0214/Un-Mix/tree/main/UnMix_SwAV/for_CIFAR). 
+- **Un-Mix** w/ [SwAV](https://arxiv.org/abs/2006.09882) on CIFAR-10 and CIFAR-100, please check our results and code out at [./UnMix_SwAV/for_CIFAR](UnMix_SwAV/for_CIFAR) (**93.0%** accuracy on CIFAR-10 and **69.9%** accuracy on CIFAR-100). 
 
-- **Un-Mix** w/ [SwAV](https://arxiv.org/abs/2006.09882) on ImageNet-1K, please check it out at [./UnMix_SwAV/for_ImageNet](https://github.com/szq0214/Un-Mix/tree/main/UnMix_SwAV/for_ImageNet).
+- **Un-Mix** w/ [SwAV](https://arxiv.org/abs/2006.09882) on ImageNet-1K, please check it out at [./UnMix_SwAV/for_ImageNet](UnMix_SwAV/for_ImageNet).
 
- (Insights of Un-Mix on the clustering-based methods like SwAV can be found [here](https://github.com/szq0214/Un-Mix/issues/7#issuecomment-1157572883).)
+ (Insights of Un-Mix on clustering-based methods like SwAV can be found [here](https://github.com/szq0214/Un-Mix/issues/7#issuecomment-1157572883).)
 
-- **Un-Mix** w/ MoCo [V1](https://arxiv.org/abs/1911.05722), [V2](https://arxiv.org/abs/2003.04297) on ImageNet-1K, please check it out at [./UnMix_MoCo/for_ImageNet](https://github.com/szq0214/Un-Mix/tree/main/UnMix_MoCo/for_ImageNet). 
+- **Un-Mix** w/ MoCo [V1](https://arxiv.org/abs/1911.05722), [V2](https://arxiv.org/abs/2003.04297) on ImageNet-1K, please check it out at [./UnMix_MoCo/for_ImageNet](UnMix_MoCo/for_ImageNet). 
 
 (**Un-Mix** w/ [MoCo](https://arxiv.org/abs/1911.05722) on CIFAR-10 and CIFAR-100 has already been included in this repo.)
 

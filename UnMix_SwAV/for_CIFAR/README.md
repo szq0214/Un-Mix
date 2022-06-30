@@ -6,7 +6,7 @@ The released code can obtain **2~4% higher** results on CIFAR than we reported i
 The mathematical explanation of Un-Mix with clustering-based methods can be found [here](https://github.com/szq0214/Un-Mix/issues/7#issuecomment-1157572883):
 
 <div align=center>
-<img src="./explanation.png" width="100%">
+<img src="./explanation.png" width="98%">
 </div>
 
 
@@ -15,13 +15,13 @@ The mathematical explanation of Un-Mix with clustering-based methods can be foun
 ## Results reported in the paper：
 
 <div align=center>
-<img src="./results_in_paper.png" width="100%">
+<img src="../../imgs/results_in_paper.png" width="90%">
 </div>
 
 ## Results from this repo:
 
 <div align=center>
-<img src="./results_in_repo.png" width="100%">
+<img src="../../imgs/results_in_repo.png" width="90%">
 </div>
 
 
@@ -77,7 +77,7 @@ The results using ``bs=256`` are available at [CIFAR-10](https://drive.google.co
 - Other dependencies: opencv-python, scipy, pandas, numpy
 
 ## Multinode training and evaluation
-Distributed training is available via Slurm. We provide several ``SBATCH scripts`` to reproduce our results (1%~1.5% higher than we reported in the paper).
+Distributed training is available via Slurm. We provide several ``SBATCH scripts`` to reproduce our results (2~4% higher than we reported in the paper).
 For example, to train and evaluate Un-Mix on CIFAR-10 using 1 node and 1 GPU with a batch size of 128 for 400 epochs, run:
 
 ```

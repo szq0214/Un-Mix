@@ -10,8 +10,8 @@
 #SBATCH --gpus=64
 #SBATCH --ntasks-per-node=8
 #SBATCH --cpus-per-task=8
-#SBATCH --job-name=swav_100ep_pretrain
-#SBATCH --time=7:00:00
+#SBATCH --job-name=swav_400ep_pretrain
+#SBATCH --time=25:00:00
 #SBATCH --mem=450G
 
 master_node=${SLURM_NODELIST:0:9}${SLURM_NODELIST:10:4}
@@ -20,7 +20,7 @@ dist_url+=$master_node
 dist_url+=:40000
 
 DATASET_PATH="/path/to/imagenet/train"
-EXPERIMENT_PATH="./experiments/swav_100ep_pretrain"
+EXPERIMENT_PATH="./experiments/unmix_swav_400ep_pretrain"
 mkdir -p $EXPERIMENT_PATH
 
 srun --output=${EXPERIMENT_PATH}/%j.out --error=${EXPERIMENT_PATH}/%j.err --label python -u main_swav_unmix.py \
@@ -36,7 +36,7 @@ srun --output=${EXPERIMENT_PATH}/%j.out --error=${EXPERIMENT_PATH}/%j.err --labe
 --feat_dim 128 \
 --nmb_prototypes 3000 \
 --queue_length 0 \
---epochs 100 \
+--epochs 400 \
 --batch_size 64 \
 --base_lr 4.8 \
 --final_lr 0.0048 \

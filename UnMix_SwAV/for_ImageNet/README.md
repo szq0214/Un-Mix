@@ -18,7 +18,7 @@ The training procedures and instructions are the same as **[SwAV code](https://g
 SwAV is very simple to implement and experiment with.
 Our implementation consists in a [main_swav_unmix.py](./main_swav_unmix.py) file from which are imported the dataset definition [src/multicropdataset.py](./src/multicropdataset.py), the model architecture [src/resnet50.py](./src/resnet50.py) and some miscellaneous training utilities [src/utils.py](./src/utils.py).
 
-For example, to train SwAV baseline on a single node with 8 gpus for 400 epochs, run:
+For example, to train Un-Mix + SwAV baseline on a single node with 8 gpus for 400 epochs, run:
 ```
 python -m torch.distributed.launch --nproc_per_node=8 main_swav_unmix.py \
 --data_path /path/to/imagenet/train \
@@ -38,14 +38,14 @@ python -m torch.distributed.launch --nproc_per_node=8 main_swav_unmix.py \
 ```
 
 ## Multinode training
-Distributed training is available via Slurm. We provide several [SBATCH scripts](./scripts) to reproduce our SwAV models.
-For example, to train SwAV on 8 nodes and 64 GPUs with a batch size of 4096 for 800 epochs run:
+Distributed training is available via Slurm. We provide several [SBATCH scripts](./scripts) to train our models.
+For example, to train Un-Mix + SwAV on 8 nodes and 64 GPUs with a batch size of 4096 for 800 epochs run:
 ```
-sbatch ./scripts/swav_800ep_pretrain.sh
+sbatch ./scripts/unmix_swav_800ep_pretrain.sh
 ```
 Note that you might need to remove the copyright header from the sbatch file to launch it.
 
-**Set up `dist_url` parameter**: We refer the user to pytorch distributed documentation ([env](https://pytorch.org/docs/stable/distributed.html#environment-variable-initialization) or [file](https://pytorch.org/docs/stable/distributed.html#shared-file-system-initialization) or [tcp](https://pytorch.org/docs/stable/distributed.html#tcp-initialization)) for setting the distributed initialization method (parameter `dist_url`) correctly. In the provided sbatch files, we use the [tcp init method](https://pytorch.org/docs/stable/distributed.html#tcp-initialization) (see [\*](https://github.com/facebookresearch/swav/blob/master/scripts/swav_800ep_pretrain.sh#L17-L20) for example).
+**Set up `dist_url` parameter**: We refer the user to pytorch distributed documentation ([env](https://pytorch.org/docs/stable/distributed.html#environment-variable-initialization) or [file](https://pytorch.org/docs/stable/distributed.html#shared-file-system-initialization) or [tcp](https://pytorch.org/docs/stable/distributed.html#tcp-initialization)) for setting the distributed initialization method (parameter `dist_url`) correctly. In the provided sbatch files, we use the [tcp init method](https://pytorch.org/docs/stable/distributed.html#tcp-initialization) (see [\*](./scripts/unmix_swav_800ep_pretrain.sh#L17-L20) for example).
 
 # Evaluating models
 
@@ -54,7 +54,7 @@ To train a supervised linear classifier on frozen features/weights on a single n
 ```
 python -m torch.distributed.launch --nproc_per_node=8 eval_linear.py \
 --data_path /path/to/imagenet \
---pretrained /path/to/checkpoints/swav_800ep_pretrain.pth.tar
+--pretrained /path/to/checkpoints/unmix_swav_800ep_pretrain.pth.tar
 ```
 The resulting linear classifier can be downloaded [here](https://dl.fbaipublicfiles.com/deepcluster/swav_800ep_eval_linear.pth.tar).
 
@@ -64,7 +64,7 @@ To reproduce our results and fine-tune a network with 1% or 10% of ImageNet labe
 ```
 python -m torch.distributed.launch --nproc_per_node=8 eval_semisup.py \
 --data_path /path/to/imagenet \
---pretrained /path/to/checkpoints/swav_800ep_pretrain.pth.tar \
+--pretrained /path/to/checkpoints/unmix_swav_800ep_pretrain.pth.tar \
 --labels_perc "10" \
 --lr 0.01 \
 --lr_last_layer 0.2
@@ -73,7 +73,7 @@ python -m torch.distributed.launch --nproc_per_node=8 eval_semisup.py \
 ```
 python -m torch.distributed.launch --nproc_per_node=8 eval_semisup.py \
 --data_path /path/to/imagenet \
---pretrained /path/to/checkpoints/swav_800ep_pretrain.pth.tar \
+--pretrained /path/to/checkpoints/unmix_swav_800ep_pretrain.pth.tar \
 --labels_perc "1" \
 --lr 0.02 \
 --lr_last_layer 5
