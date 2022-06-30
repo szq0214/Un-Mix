@@ -1,6 +1,21 @@
 
 ## Un-Mix: Rethinking Image Mixtures for Unsupervised Visual Representation Learning
 
+## Update (06/30/2022)
+
+**New:** We add more implementation code and models in this repo:
+
+- **Un-Mix** w/ [SwAV](https://arxiv.org/abs/2006.09882) on CIFAR-10 and CIFAR-100, please check our results and code out at [./UnMix_SwAV/for_CIFAR](https://github.com/szq0214/Un-Mix/tree/main/UnMix_SwAV/for_CIFAR). 
+
+- **Un-Mix** w/ [SwAV](https://arxiv.org/abs/2006.09882) on ImageNet-1K, please check it out at [./UnMix_SwAV/for_ImageNet](https://github.com/szq0214/Un-Mix/tree/main/UnMix_SwAV/for_ImageNet).
+
+ (Insights of Un-Mix on the clustering-based methods like SwAV can be found [here](https://github.com/szq0214/Un-Mix/issues/7#issuecomment-1157572883).)
+
+- **Un-Mix** w/ MoCo [V1](https://arxiv.org/abs/1911.05722), [V2](https://arxiv.org/abs/2003.04297) on ImageNet-1K, please check it out at [./UnMix_MoCo/for_ImageNet](https://github.com/szq0214/Un-Mix/tree/main/UnMix_MoCo/for_ImageNet). 
+
+(**Un-Mix** w/ [MoCo](https://arxiv.org/abs/1911.05722) on CIFAR-10 and CIFAR-100 has already been included in this repo.)
+
+**Notes:** As Un-Mix implementation on CIFAR with SwAV was done in 2020, while the SwAV authors simplified their cluster assignment implementation in [April, 2021](https://github.com/facebookresearch/swav/commit/9a2dc8073884c11de691ffe734bd624a84ccd96d). Thus, our CIFAR code follows their old implementation before simplification, but the ImageNet code is based on their updated version. Nevertheless, the performance of them will not be affected. 
 
 ## Update (01/07/2022)
 
