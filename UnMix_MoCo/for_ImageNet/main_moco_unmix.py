@@ -106,7 +106,7 @@ parser.add_argument('--cos', action='store_true',
 # options for un-mix
 parser.add_argument('--beta', default=1.0, type=float, metavar='B',
                     help='beta distribution')
-parser.add_argument('--unmix_prob', default=0.5, type=float, metavar='U',
+parser.add_argument('--unmix_prob', default=0.0, type=float, metavar='U',
                     help='probability to choose local or global mixtures, please tune this to obtain better performance')
 
 def main():

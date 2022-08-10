@@ -126,7 +126,7 @@ parser.add_argument("--seed", type=int, default=31, help="seed")
 #########################
 parser.add_argument("--run_swav", type=bool_flag, default=False,
                     help="whether to train with vanilla swav or not")
-parser.add_argument("--unmix_prob", default=0.5, type=float,
+parser.add_argument("--unmix_prob", default=0.0, type=float,
                     help="trade-off of local and global mixture")
 parser.add_argument("--unmix_beta", default=1.0, type=float,
                     help="beta value in mixture distribution")
